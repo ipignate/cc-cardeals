@@ -1,0 +1,68 @@
+<!DOCTYPE html><!-- Shell Page -->
+<html ng-app="cardeals">
+
+<head>
+  <title>cardeals</title>
+  <meta charset="utf-8">
+  <base href="/" />
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/ngApp/css/site.css"/>
+</head>
+
+<body>
+
+  <script src="/bower_components/angular/angular.min.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
+  <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="/bower_components/angular-touch/angular-touch.min.js"></script>
+  <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+  <script src="/ngApp/app.js"></script>
+  <script src="/ngApp/controllers/controllers.js"></script>
+  <script src="/ngApp/services/services.js"></script>
+
+  <div class="container">
+    <div class="navbar">
+      <div class="navbar-header">
+        <a class="navbar-brand"><img ng-src="/ngApp/images/logo.png" width="100px" height="30px"></a>
+        <a class="navbar-title"><h4>Ice-On-Wheels</h4></a>
+      </div>
+
+      <div class="navbar-form navbar-right">
+        <!-- Search Box -->
+        <div class="form-group">
+          <div class="icon-addon addon-lg">
+            <input type="text"
+                   class="form-control"
+                   placeholder="By Name..."
+                   id="search"
+                   ng-model="carSearch.ShortDescription">
+            </input>
+            <label for="search" class="glyphicon glyphicon-search"></label>
+          </div>
+        </div>
+        <!-- Make Dropdown box -->
+        <div ng-controller="MakeCtrl">
+        <div class="form-group">
+          <div class="icon-addon addon-md">
+              <form name="myForm">
+                <label for="brandSelect"> Select Brand: </label>
+                  <select name="brandSelect" id="brandSelect" ng-model="selectedValue" class="form-control">
+                    <option ng-repeat="option in controller.makes.name" value="{{option.id}}">{{option.name}}</option>
+                  </select>
+              </form>
+          </div>
+        </div>
+      </div>
+
+     </div><!-- navbar form right-->
+   </div><!-- navbar -->
+ </div><!-- container -->
+
+  <div>
+      <ui-view></ui-view>
+  </div>
+
+ </body>
+</html>

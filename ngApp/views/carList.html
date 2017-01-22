@@ -1,0 +1,31 @@
+
+<div class="panel panel-primary container-fluid">
+    <div class="panel-heading row" style="font-size:large; vertical-align: top">
+      <a>Car List</a>
+    </div>
+
+    <div class="panel-body">
+    <table class="table">
+            <thead>
+            <tr>
+                <td>Image</td>
+                <td>Car</td>
+                <td style="text-align: right">Price</td>
+                <td style="text-align: center">Listing Id</td>
+            </tr>
+            </thead>
+            <tbody >
+            <tr ng-repeat="car in controller.cars | filter: carSearch | orderBy:'id'">
+                <td>
+                    <img ng-src="{{car.ImageUrl}}" style="width:50px;margin:2px" title="{{car.ShortDescription}}">
+                </td>
+                <td>
+                    <a ui-sref="carDetail({id: car.id})">{{car.ShortDescription}}</a>
+                </td>
+                <td style="text-align: right">{{ car.Price | currency }}</td>
+                <td style="text-align: center">{{ car.id }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

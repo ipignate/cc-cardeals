@@ -1,0 +1,23 @@
+
+<div class="panel panel-primary container-fluid">
+    <div class="panel-heading row" style="font-size:large; vertical-align: top">
+      <a><h4>Makes List</h4></a>
+    </div>
+
+    <div class="panel-body">
+    <table class="table">
+            <thead>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+            </tr>
+            </thead>
+            <tbody ng-controller="MakeCtrl">
+            <tr ng-repeat="brand in controller.makes">
+                <td>{{brand.id}}</td>
+                <td>{{brand.name}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
